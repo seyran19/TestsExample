@@ -1,0 +1,14 @@
+assertEquals
+assertEquals(4, calculator.multiply(2, 2),"optional failure message");
+
+assertTrue
+assertTrue('a' < 'b', () → "optional failure message");
+
+assertFalse
+assertFalse('a' > 'b', () → "optional failure message");
+
+assertNotNull
+assertNotNull(yourObject, "optional failure message");
+
+assertNull
+assertNull(yourObject, "optional failure message");

@@ -1,0 +1,21 @@
+import static org.junit.jupiter.api.Assertions.assertTimeout;
+import static java.time.Duration.ofSeconds;
+import static java.time.Duration.ofMinutes;
+
+Если вы хотите убедиться, что тест провалится, если он не будет выполнен за определенное время,
+вы можете использовать assertTimeout()метод. Это утверждение проваливает метод, если превышено время ожидания.
+
+
+@Test
+void timeoutNotExceeded() {
+    assertTimeout(ofMinutes(1), () -> service.doBackup());
+}
+
+// if you have to check a return value
+@Test
+void timeoutNotExceededWithResult() {
+    String actualResult = assertTimeout(ofSeconds(1), () -> {
+        return restService.request(request);
+    });
+    assertEquals(200, request.getStatus());
+}
